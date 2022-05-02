@@ -11,9 +11,6 @@ const app = express();
 connectDB();
 
 module.exports = app;
-
-app.get("/", (req, res) => res.send("Welcome to my api"));
-
 async function start() {
   const apolloServer = new ApolloServer({
      typeDefs,
