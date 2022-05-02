@@ -1,5 +1,6 @@
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
+import {ApolloServerPluginLandingPageGraphQLPlayground} from "apollo-server-core";
 const { typeDefs } = require("./graphql/typeDef");
 const { resolvers } = require("./graphql/resolvers");
 //Integracion de la base de datos
@@ -10,6 +11,9 @@ const app = express();
 connectDB();
 
 module.exports = app;
+
+app.get("/", (req, res) => res.send("Welcome to my api"));
+
 async function start() {
   const apolloServer = new ApolloServer({
      typeDefs,
@@ -17,6 +21,7 @@ async function start() {
    });
 
   await apolloServer.start();
+
   apolloServer.applyMiddleware({ app });
   app.use(cors());
   app.set('port',process.env.PORT || 3002)
