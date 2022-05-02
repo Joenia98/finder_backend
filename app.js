@@ -1,6 +1,5 @@
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
-import {ApolloServerPluginLandingPageGraphQLPlayground} from "apollo-server-core";
 const { typeDefs } = require("./graphql/typeDef");
 const { resolvers } = require("./graphql/resolvers");
 //Integracion de la base de datos
