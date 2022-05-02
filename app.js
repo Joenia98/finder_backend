@@ -17,7 +17,7 @@ async function start() {
    });
 
   await apolloServer.start();
-
+   app.use("/", (req, res) => res.redirect("https://employee-list-test.herokuapp.com/graphql"))
   apolloServer.applyMiddleware({ app });
   app.use(cors());
   app.set('port',process.env.PORT || 3002)
