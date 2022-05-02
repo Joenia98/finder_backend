@@ -3,7 +3,7 @@ const  Employee  = require("../models/Employees");
 const resolvers = {
   Query: {
     getAllEmployees: async() => {
-      const Employees = await Employee.find().sort({ first_employee: 1 });
+      const Employees = await Employee.find().sort({ first_name: 1 });
       return Employees;
     },
     Employee_ID: async(_,{id})=>{

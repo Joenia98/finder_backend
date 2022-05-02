@@ -20,10 +20,11 @@ async function start() {
 
   apolloServer.applyMiddleware({ app });
   app.use(cors());
+  app.set('port',process.env.PORT || 3002)
   app.use("*", (req, res) => res.status(404).send("Not Found"));
 
-  app.listen(3002, () => {
-    console.log("Server on port", 3002);
+  app.listen(app.get('port'), () => {
+    console.log("Server on port:", app.get('port'));
   });
 }
 start();
